@@ -304,7 +304,7 @@ class BaseBEVBackbone_range_guide(nn.Module):
         x = spatial_features
         _, range_features = torch.chunk(spatial_features, 2, dim=1)
         x = self.AF(x)
-        
+
         for i in range(len(self.blocks)):
 
             # ##################### for kitti
@@ -353,17 +353,18 @@ class AttentiveFusion(nn.Module):
         C_in = C_out = 128
         kernel_size = 3
         padding = 1
-        self.conv = nn.Conv1d(C_in, C_out, kernel_size=kernel_size, padding=padding)
-        self.conv1 = nn.Conv1d(C_in, C_out, kernel_size=kernel_size, padding=padding)
-        self.conv2 = nn.Conv1d(C_in, C_out, kernel_size=kernel_size, padding=padding)
-        self.conv3 = nn.Conv1d(C_in, C_out, kernel_size=kernel_size, padding=padding)
+        self.conv = nn.Linear(C_in, C_out)
+        self.conv1 = nn.Linear(C_in, C_out)
+        self.conv2 = nn.Linear(C_in, C_out)
+        self.conv3 = nn.Linear(C_in, C_out)
         self.sm = nn.Softmax()
 
     def forward(self, x):
         b,c,h,w = x.size()
-        x_reshape = x.view(b,c,-1)
+        x_reshape = x.view(b,c,-1).permute(0, 2, 1)
         P,Q,R = self.conv1(x_reshape), self.conv2(x_reshape), self.conv3(x_reshape)
-        G = self.sm(torch.mul(torch.transpose(P, 1,2),Q))
-        middle =  self.conv(torch.mul(x_reshape, G))
-        S = torch.add(G+middle)
+        G = self.sm(torch.matmul(torch.transpose(P,1,2),Q))
+        middle =  self.conv(torch.matmul(x_reshape, G))
+        S = torch.add(x_reshape,middle)
+        S = S.permute(0, 2, 1)
         return S.view(b,c,h,w)

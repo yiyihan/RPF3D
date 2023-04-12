@@ -9,10 +9,11 @@ from .caddn import CaDDN
 from .voxel_rcnn import VoxelRCNN
 from .centerpoint import CenterPoint
 from .pv_rcnn_plusplus import PVRCNNPlusPlus
-from .mppnet import MPPNet
-from .mppnet_e2e import MPPNetE2E
+# from .mppnet import MPPNet
+# from .mppnet_e2e import MPPNetE2E
 from .pillarnet import PillarNet
 from .voxelnext import VoxelNeXt
+from .rpf3d import RPF3D
 
 __all__ = {
     'Detector3DTemplate': Detector3DTemplate,
@@ -27,8 +28,9 @@ __all__ = {
     'CenterPoint': CenterPoint,
     'PillarNet': PillarNet,
     'PVRCNNPlusPlus': PVRCNNPlusPlus,
-    'MPPNet': MPPNet,
-    'MPPNetE2E': MPPNetE2E,
+    'RPF3D': RPF3D,
+    # 'MPPNet': MPPNet,
+    # 'MPPNetE2E': MPPNetE2E,
     'PillarNet': PillarNet,
     'VoxelNeXt': VoxelNeXt
 }

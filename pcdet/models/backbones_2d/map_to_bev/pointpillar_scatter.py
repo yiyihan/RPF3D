@@ -116,14 +116,9 @@ class PointPillarScatter_range_image(nn.Module):
             # print('res shape', res.size())
             
             bev = gen_bev_map(res) # kitti
-            
-            
-            
             bevs.append(torch.unsqueeze(bev, 0))
 
         bevs_torch = torch.cat((bevs),0)
-        # print('bev size',bevs_torch.size())
-        # print('batch_spatial_features size',batch_spatial_features.size())
         batch_add = torch.cat((batch_spatial_features, bevs_torch), dim=1)
        
         batch_dict['spatial_features'] = batch_add
@@ -142,7 +137,7 @@ def gen_bev_map(pc, y_range=[-39.68, 39.68], x_range=[0, 69.12], res=0.16):
     h = int((x_range[1] - x_range[0])/res)
 
     # for waymo
-    w, h = 468, 468
+    # w, h = 468, 468
     # print(w, h)
 
     point = pc.permute(1,0).contiguous()
