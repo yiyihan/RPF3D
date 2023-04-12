@@ -1,5 +1,5 @@
 <img src="docs/open_mmlab.png" align="right" width="30%">
-
+We are grateful to the OpenPCDet toolbox for providing the solid foundation upon which our work is built.
 # OpenPCDet
 
 `OpenPCDet` is a clear, simple, self-contained open source project for LiDAR-based 3D object detection. 
