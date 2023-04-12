@@ -1,5 +1,5 @@
 <img src="docs/open_mmlab.png" align="right" width="30%">
-# OpenPCDet
+## OpenPCDet
 
 We are grateful to the OpenPCDet toolbox for providing the solid foundation upon which our work is built.
 
