@@ -16,5 +16,5 @@ We are very grateful to the [OpenPCDet](https://github.com/open-mmlab/OpenPCDet)
 ```
 
 ## Contribution
-Our work is under review, we will describe our methodology in detail after the review process.
+Our work is under review, we will describe our framework in detail after the review process.
 
