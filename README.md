@@ -5,7 +5,7 @@
 `OpenPCDet` is a clear, simple, self-contained open source project for LiDAR-based 3D object detection. 
 
 ## Acknowledgement 
-We are grateful to the[OpenPCDet](https://github.com/open-mmlab/OpenPCDet) toolbox for providing the solid foundation upon which our work is built. 
+We are grateful to the [OpenPCDet](https://github.com/open-mmlab/OpenPCDet) toolbox for providing the solid foundation upon which our work is built. 
 ```
 @misc{openpcdet2020,
     title={OpenPCDet: An Open-source Toolbox for 3D Object Detection from Point Clouds},
